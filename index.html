@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Paka Children Outreach | Supporting Children, Building Brighter Futures
+    </title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js for lightweight reactivity -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                dark: "#0A3B26" /* Rich Deep Forest Green */,
+                green: "#0E5336" /* Primary Logo Green */,
+                lightgreen: "#1B734E",
+                gold: "#F5A623" /* Logo Heart Gold */,
+                goldhover: "#D98E16",
+                cream: "#F9F7F1" /* Warm Luxury Cream */,
+                creamdak: "#F0ECE1",
+                textdark: "#1C2923",
+                muted: "#5F7368",
+              },
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Custom Styling for Image Capsules from Inspo Image 3 */
+      .capsule-img {
+        border-radius: 9999px;
+        object-fit: cover;
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+      .capsule-img:hover {
+        transform: translateY(-8px);
+      }
+
+      /* Glassmorphism details */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      .glass-dark {
+        background: rgba(10, 59, 38, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Hero Background Overlay with Kenya Silhouette Motif */
+      .hero-bg {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(10, 59, 38, 0.92) 0%,
+            rgba(14, 83, 54, 0.82) 50%,
+            rgba(10, 35, 24, 0.92) 100%
+          ),
+          url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Custom Wave Divider Shapes */
+      .wave-svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* M-PESA badge pulse */
+      @keyframes pulse-subtle {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.03);
+        }
+      }
+      .pulse-badge {
+        animation: pulse-subtle 3s infinite ease-in-out;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-brand-cream text-brand-textdark font-sans antialiased selection:bg-brand-gold selection:text-white"
+    x-data="{ mobileMenu: false }"
+  >
+    <!-- ================= NAVBAR ================= -->
+    <header
+      class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-cream"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <!-- Logo Section matching brand logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="relative flex items-center justify-center">
+            
+            <img 
+  src="../images/Paka Children Outreach Logo.png" 
+  alt="Paka Children Outreach Logo" 
+  class="h-12 w-auto object-contain"
+/>
+              <!-- Heart -->
+              <path
+                d="M100 20 C110 5, 135 5, 145 25 C155 45, 130 65, 100 85 C70 65, 45 45, 55 25 C65 5, 90 5, 100 20 Z"
+                fill="#F5A623"
+              />
+              <!-- Main Adult Hugging Silhouette -->
+              <path d="M50 45 A 22 22 0 1 0 50 1 Z" fill="#0E5336" />
+              <path
+                d="M50 55 C 20 60, 10 90, 10 140 C 10 170, 45 175, 75 160 C 100 145, 80 110, 60 95 C 45 85, 40 70, 50 55 Z"
+                fill="#0E5336"
+              />
+              <!-- Child Silhouette -->
+              <path d="M110 65 A 16 16 0 1 0 110 33 Z" fill="#0E5336" />
+              <path
+                d="M110 75 C 85 80, 70 105, 80 145 C 90 170, 125 155, 135 130 C 140 110, 125 90, 110 75 Z"
+                fill="#0E5336"
+              />
+              <!-- Golden Warm Swoosh Accent -->
+              <path
+                d="M135 130 C 150 100, 145 70, 130 55 C 135 65, 140 90, 125 125 Z"
+                fill="#F5A623"
+              />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            
+            
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav
+          class="hidden md:flex items-center gap-8 font-medium text-brand-textdark text-sm"
+        >
+          <a
+            href="#home"
+            class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold"
+            >Home</a
+          >
+          <a
+            href="#story"
+            class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold"
+            >Our Story</a
+          >
+          <a
+            href="#objectives"
+            class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold"
+            >What We Do</a
+          >
+          <a
+            href="#how-to-help"
+            class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold"
+            >How to Help</a
+          >
+          <a
+            href="#team"
+            class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold"
+            >Our Team</a
+          >
+        </nav>
+
+        <!-- CTA Header Button -->
+        <div class="hidden sm:flex items-center gap-4">
+          <a
+            href="#donate-now"
+            class="bg-brand-gold hover:bg-brand-goldhover text-brand-dark font-bold px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-sm flex items-center gap-2"
+          >
+            <i class="fa-solid fa-heart text-xs"> </i>
+            <span>Donate Now</span>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          @click="mobileMenu = !mobileMenu"
+          class="md:hidden p-2 rounded-lg text-brand-green hover:bg-brand-cream focus:outline-none"
+        >
+          <i
+            class="fa-solid"
+            :class="mobileMenu ? 'fa-xmark text-2xl' : 'fa-bars text-xl'"
+          >
+          </i>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div
+        x-show="mobileMenu"
+        x-transition
+        class="md:hidden bg-white border-b border-brand-cream px-4 pt-2 pb-6 space-y-3"
+      >
+        <a
+          @click="mobileMenu = false"
+          href="#home"
+          class="block py-2 text-base font-semibold text-brand-textdark hover:text-brand-green"
+          >Home</a
+        >
+        <a
+          @click="mobileMenu = false"
+          href="#story"
+          class="block py-2 text-base font-semibold text-brand-textdark hover:text-brand-green"
+          >Our Story</a
+        >
+        <a
+          @click="mobileMenu = false"
+          href="#objectives"
+          class="block py-2 text-base font-semibold text-brand-textdark hover:text-brand-green"
+          >What We Do</a
+        >
+        <a
+          @click="mobileMenu = false"
+          href="#how-to-help"
+          class="block py-2 text-base font-semibold text-brand-textdark hover:text-brand-green"
+          >How to Help</a
+        >
+        <a
+          @click="mobileMenu = false"
+          href="#team"
+          class="block py-2 text-base font-semibold text-brand-textdark hover:text-brand-green"
+          >Our Team</a
+        >
+        <div class="pt-2">
+          <a
+            @click="mobileMenu = false"
+            href="#donate-now"
+            class="w-full text-center block bg-brand-gold text-brand-dark font-bold py-3 rounded-xl shadow"
+            >Donate Now</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <!-- Modeled after Reference Inspo Image 5 (Anti Website) with Kenya Map Accent -->
+    <section
+      id="home"
+      class="relative hero-bg text-white pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden"
+    >
+      <!-- Subtle Background Decorative Kenya Map Watermark Silhouette -->
+      <div
+        class="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 opacity-10 pointer-events-none flex items-center justify-center p-8"
+      >
+        <svg
+          class="w-full h-full max-h-[600px]"
+          viewBox="0 0 500 600"
+          fill="currentColor"
+        >
+          <!-- Simplified Vector Map Outline of Kenya -->
+          <path
+            d="M 180,50 L 260,30 L 380,120 L 450,220 L 390,320 L 340,480 L 260,540 L 200,490 L 140,420 L 110,340 L 90,260 L 130,160 Z"
+          />
+        </svg>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Hero Left Text Content -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <!-- Pill Tag -->
+            <!-- <div
+              class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-gold text-xs sm:text-sm font-semibold uppercase tracking-wider"
+            >
+             <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping">
+              </span>
+              
+            </div>-->
+
+            <!-- Main Hero Heading -->
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white"
+            >
+              Paka Children <br class="hidden sm:inline" />
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-yellow-200 to-white"
+                >Outreach</span
+              >
+            </h1>
+
+            <!-- Subheading from Prompt -->
+            <p
+              class="text-xl sm:text-2xl font-serif text-brand-cream/90 italic font-light"
+            >
+              "Clothing kids with dignity & love"
+            </p>
+
+            <p
+              class="text-base sm:text-lg text-gray-200 max-w-2xl font-light leading-relaxed"
+            >
+              We are dedicated to uplifting vulnerable children across Kenya by
+              providing dignity through decent clothing, breathable footwear,
+              daily nutrition, and essential hygiene supplies.
+            </p>
+
+            <!-- CTAs & Trust Badges -->
+            <div
+              class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4"
+            >
+              <a
+                href="#how-to-help"
+                class="bg-brand-gold hover:bg-brand-goldhover text-brand-dark font-bold px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center gap-3"
+              >
+                <span>Explore How To Help</span>
+                <i class="fa-solid fa-arrow-right text-xs"> </i>
+              </a>
+              <a
+                href="#story"
+                class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-6 py-3.5 rounded-full border border-white/30 transition flex items-center gap-2"
+              >
+                <i class="fa-regular fa-circle-play text-brand-gold"> </i>
+                <span>Watch Our Story</span>
+              </a>
+            </div>
+
+            <!-- Impact Quick Metrics Pills -->
+            <div
+              class="pt-8 border-t border-white/10 flex flex-wrap justify-center lg:justify-start gap-6 text-left"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold"
+                >
+                  <i class="fa-solid fa-graduation-cap"> </i>
+                </div>
+                <div>
+                  <p class="text-xl font-bold text-white">50+</p>
+                  <p class="text-xs text-gray-300">Children Target</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold"
+                >
+                  <i class="fa-solid fa-location-dot"> </i>
+                </div>
+                <div>
+                  <p class="text-xl font-bold text-white">1</p>
+                  <p class="text-xs text-gray-300">Paka Area</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right Side Quick Donation Box (Direct Inspo from Image 5) -->
+          <div class="lg:col-span-5" id="donate-now">
+            <div
+              class="bg-white rounded-3xl p-6 sm:p-8 text-brand-textdark shadow-2xl relative overflow-hidden border border-gray-100"
+              x-data="{ tab: 'one-time', amount: '1000', customAmount: '', cause: 'general' }"
+            >
+              <!-- Top Header inside Form -->
+              <div
+                class="flex items-center justify-between border-b border-gray-100 pb-4 mb-5"
+              >
+                <div>
+                  <h3 class="font-bold text-xl text-brand-dark">
+                    Make a Donation
+                  </h3>
+                  <p class="text-xs text-brand-muted">
+                    Every contribution brings hope and real change.
+                  </p>
+                </div>
+                <!-- M-PESA Badge Icon -->
+                <div
+                  class="bg-green-100 text-green-800 text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1 pulse-badge"
+                >
+                  <i class="fa-solid fa-mobile-screen"> </i> M-PESA
+                </div>
+              </div>
+
+              <!-- One Time vs Monthly Switcher -->
+              <div
+                class="grid grid-cols-2 bg-gray-100 p-1 rounded-xl mb-5 text-sm font-semibold"
+              >
+                
+<button
+  @click="tab = 'one-time'; amount = '1000'; customAmount = ''"
+  :class="tab === 'one-time' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-brand-dark'"
+  class="py-2.5 rounded-lg transition-all"
+>
+  Give Once
+</button>
+
+<button
+  @click="tab = 'monthly'; amount = '2500'; customAmount = ''"
+  :class="tab === 'monthly' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-brand-dark'"
+  class="py-2.5 rounded-lg transition-all"
+>
+  Buy a Package
+</button>
+
+              </div>
+
+              <!-- Amount Presets in KES / USD equivalent -->
+              <label
+                class="block text-xs font-bold text-gray-600 uppercase mb-2"
+                >Select Donation Amount</label
+              >
+              <div class="grid grid-cols-4 gap-2 mb-4">
+                <template x-for="val in ['500', '1000', '2500', '5000']">
+                  <button
+                    @click="amount = val; customAmount = ''"
+                    :class="amount === val && !customAmount ? 'bg-brand-gold text-brand-dark font-extrabold ring-2 ring-brand-gold' : 'bg-gray-50 hover:bg-gray-100 text-gray-700 border border-gray-200'"
+                    class="py-2.5 text-xs sm:text-sm font-bold rounded-xl transition"
+                  >
+                    KES <span x-text="val"> </span>
+                  </button>
+                </template>
+              </div>
+
+              <!-- Custom Amount Input -->
+              <div class="relative mb-4">
+                <span
+                  class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gray-400 font-bold text-sm"
+                  >KES</span
+                >
+                <input
+                  type="number"
+                  placeholder="Other Amount (KES)"
+                  x-model="customAmount"
+                  @input="amount = ''"
+                  class="w-full pl-14 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-green font-semibold"
+                />
+              </div>
+
+              <!-- Target Cause Dropdown -->
+              <div class="mb-5">
+                <label
+                  class="block text-xs font-bold text-gray-600 uppercase mb-1"
+                  >Impact Area</label
+                >
+                <select
+                  x-model="cause"
+                  class="w-full bg-gray-50 border border-gray-200 text-sm font-medium rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-green"
+                >
+                  <option value="general">Where Most Needed</option>
+                  <option value="shoes">School Shoes & Socks Drive</option>
+                  <option value="pads">Sanitary Hygiene Kits for Girls</option>
+                  <option value="clothing">
+                    Decent School Uniform & Clothes
+                  </option>
+                  <option value="snacks">Nutritious Daily School Meals</option>
+                </select>
+              </div>
+
+              <!-- Submit Button -->
+              
+<!-- Donation button: keeps your existing styling -->
+<button
+  type="button"
+  class="intaSendPayButton w-full bg-brand-green hover:bg-brand-dark text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 group"
+  :data-amount="customAmount !== '' ? customAmount : amount"
+  data-currency="KES"
+  :data-api_ref="'PCO-' + Date.now()"
+  :data-comment="'Paka Children Outreach - ' + tab + ' - ' + cause"
+>
+  <span>Proceed to Donate</span>
+  <i
+    class="fa-solid fa-heart text-brand-gold group-hover:scale-125 transition-transform"
+  ></i>
+</button>
+
+
+              <!-- M-PESA Till Details Footer Info -->
+              <div class="mt-4 pt-3 border-t border-gray-100 text-center">
+                <p class="text-xs text-gray-500 font-medium">
+                  Direct M-PESA Paybill / Till Option available at checkout.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= IMPACT STATS BAR ================= -->
+    <div class="max-w-6xl mx-auto px-4 -mt-10 relative z-20">
+      <div
+        class="bg-brand-dark text-white rounded-2xl shadow-xl p-6 sm:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center border border-brand-green/30"
+      >
+        <div class="space-y-1">
+          <p class="text-3xl sm:text-4xl font-extrabold text-brand-gold">
+            100%
+          </p>
+          <p class="text-xs sm:text-sm text-gray-300 font-medium">
+            Direct Impact to Kids
+          </p>
+        </div>
+        <div class="space-y-1 border-l border-white/10">
+          <p class="text-3xl sm:text-4xl font-extrabold text-white">50+</p>
+          <p class="text-xs sm:text-sm text-gray-300 font-medium">
+            Pairs of Shoes To Gift
+          </p>
+        </div>
+        <div class="space-y-1 border-l border-white/10">
+          <p class="text-3xl sm:text-4xl font-extrabold text-brand-gold">
+            50+
+          </p>
+          <p class="text-xs sm:text-sm text-gray-300 font-medium">
+            Sanitary Packs To Be Distributed
+          </p>
+        </div>
+        <div class="space-y-1 border-l border-white/10">
+          <p class="text-3xl sm:text-4xl font-extrabold text-white">100%</p>
+          <p class="text-xs sm:text-sm text-gray-300 font-medium">
+            Transparency Score
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ORGANIC WAVE SEPARATOR 1 ================= -->
+    <div class="w-full overflow-hidden leading-none text-brand-cream pt-8">
+      <svg
+        class="wave-svg fill-current"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- ================= SECTION 2: OUR OBJECTIVES ================= -->
+    <!-- Modeled after Inspo Image 4 (GainLove Grid Cards) -->
+    <section id="objectives" class="py-16 sm:py-24 bg-brand-cream relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span
+            class="text-brand-gold font-extrabold text-xs uppercase tracking-widest px-3 py-1 bg-brand-gold/10 rounded-full"
+            >Our Core Pillars</span
+          >
+          <h2
+            class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-3 tracking-tight"
+          >
+            Our Key Objectives
+          </h2>
+          <div class="w-16 h-1 bg-brand-gold mx-auto my-4 rounded-full"></div>
+          <p class="text-brand-muted text-base sm:text-lg">
+            We focus on four foundational needs that directly transform a
+            child's health, confidence, and educational performance.
+          </p>
+        </div>
+
+        <!-- Objectives Grid: 4 Cards from prompt -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Objective 1: Decent Clothing -->
+          <div
+            class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-1"
+          >
+            <div class="relative h-48 rounded-2xl overflow-hidden mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop"
+                alt="Decent Clothing"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full"
+                >01</span
+              >
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-2">
+              Provide Decent Clothing
+            </h3>
+            <p class="text-brand-muted text-sm leading-relaxed flex-grow">
+              Restoring dignity by replacing worn-out garments with clean,
+              durable, and fitting wear and daily clothes.
+            </p>
+            <div
+              class="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between text-brand-green font-bold text-xs uppercase"
+            >
+              <span>Clothing & Wear</span>
+              <i class="fa-solid fa-shirt"> </i>
+            </div>
+          </div>
+
+          <!-- Objective 2: Breathable Shoes -->
+          <div
+            class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-1"
+          >
+            <div class="relative h-48 rounded-2xl overflow-hidden mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop"
+                alt="Breathable Shoes"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full"
+                >02</span
+              >
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-2">
+              Provide Breathable Shoes
+            </h3>
+            <p class="text-brand-muted text-sm leading-relaxed flex-grow">
+              Protecting little feet from injuries and infections with
+              comfortable, long-lasting footwear designed for long  walks.
+            </p>
+            <div
+              class="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between text-brand-green font-bold text-xs uppercase"
+            >
+              <span>Footwear Protection</span>
+              <i class="fa-solid fa-shoe-prints"> </i>
+            </div>
+          </div>
+
+          <!-- Objective 3: Healthy Snacks -->
+          <div
+            class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-1"
+          >
+            <div class="relative h-48 rounded-2xl overflow-hidden mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop"
+                alt="Healthy Snacks"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full"
+                >03</span
+              >
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-2">
+              Provide Healthy Snacks
+            </h3>
+            <p class="text-brand-muted text-sm leading-relaxed flex-grow">
+              Ensuring children stay energized, focused, and throughout with nutritious meals and snacks.
+            </p>
+            <div
+              class="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between text-brand-green font-bold text-xs uppercase"
+            >
+              <span>Nutrition & Health</span>
+              <i class="fa-solid fa-apple-whole"> </i>
+            </div>
+          </div>
+
+          <!-- Objective 4: Sanitary Pads -->
+          <div
+            class="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-1"
+          >
+            <div class="relative h-48 rounded-2xl overflow-hidden mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=800&auto=format&fit=crop"
+                alt="Sanitary Pads"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full"
+                >04</span
+              >
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-2">
+              Provide Sanitary Pads
+            </h3>
+            <p class="text-brand-muted text-sm leading-relaxed flex-grow">
+              Keeping young girls in school comfortably and with confidence
+              through regular monthly sanitary hygiene kits.
+            </p>
+            <div
+              class="pt-4 border-t border-gray-100 mt-4 flex items-center justify-between text-brand-green font-bold text-xs uppercase"
+            >
+              <span>Girl Child Dignity</span>
+              <i class="fa-solid fa-hands-holding-child"> </i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ORGANIC WAVE SEPARATOR 2 ================= -->
+    <div class="w-full overflow-hidden leading-none bg-brand-cream text-white">
+      <svg
+        class="wave-svg fill-current"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,30 C300,90 600,-20 900,60 C1050,100 1150,40 1200,20 L1200,120 L0,120 Z"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- ================= SECTION 3: OUR STORY & IDENTITY ================= -->
+    <!-- Direct Inspo Implementation from Image 3 (3 Vertical Stacked Capsule Images & Floating Vision/Mission Box) -->
+    <section id="story" class="py-16 sm:py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Story Upper Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+          <!-- Left Story Content -->
+          <div class="lg:col-span-6 space-y-6">
+            <span
+              class="text-brand-gold font-extrabold text-xs uppercase tracking-widest px-3 py-1 bg-brand-gold/10 rounded-full"
+              >Who We Are</span
+            >
+            <h2
+              class="text-3xl sm:text-5xl font-extrabold text-brand-dark tracking-tight leading-tight"
+            >
+              Our Story
+            </h2>
+            <div class="w-16 h-1 bg-brand-gold rounded-full"></div>
+
+            <blockquote
+              class="text-lg sm:text-xl font-serif text-brand-dark italic border-l-4 border-brand-gold pl-4 py-1"
+            >
+              "Born out of deep compassion for young lives across Kenya, Paka
+              Children Outreach began with a simple belief: every child deserves
+              basic dignity to thrive."
+            </blockquote>
+
+            <p class="text-brand-muted leading-relaxed text-base">
+              Founded in Kenya, Paka Children Outreach directly addresses the
+              quiet hurdles that keep children out of school or lower their
+              self-esteem. We saw students missing school due to lack of
+              sanitary pads, walking miles barefoot on rough terrain, or sitting
+              through lessons on an empty stomach.
+            </p>
+
+            <p class="text-brand-muted leading-relaxed text-base">
+              Through direct community partnerships, transparent grassroots
+              efforts, and donor generosity, we step in to ensure no child is
+              left behind.
+            </p>
+
+            <div class="pt-2">
+              <a
+                href="#how-to-help"
+                class="inline-flex items-center gap-2 bg-brand-green hover:bg-brand-dark text-white font-bold px-7 py-3 rounded-full transition shadow"
+              >
+                <span>Join Our Journey</span>
+                <i class="fa-solid fa-arrow-right text-xs"> </i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Side: 3 Stacked Capsule Images (Direct Inspo from Image 3 - Agri Lane) -->
+          <div
+            class="lg:col-span-6 flex justify-center items-center gap-3 sm:gap-4"
+          >
+            <!-- Image Pill 1 -->
+            <div class="w-1/3 h-72 sm:h-96">
+              <img
+                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=600&auto=format&fit=crop"
+                alt="Kenyan Children Smiling"
+                class="w-full h-full capsule-img shadow-lg"
+              />
+            </div>
+            <!-- Image Pill 2 (Elevated Center) -->
+            <div class="w-1/3 h-80 sm:h-[420px] -translate-y-4">
+              <img
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop"
+                alt="School Students"
+                class="w-full h-full capsule-img shadow-xl border-4 border-brand-cream"
+              />
+            </div>
+            <!-- Image Pill 3 -->
+            <div class="w-1/3 h-72 sm:h-96">
+              <img
+                src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop"
+                alt="Outreach Activity"
+                class="w-full h-full capsule-img shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Vision & Mission Subsection Box (Exact layout from Inspo Image 3) -->
+        <div
+          class="bg-brand-cream rounded-3xl p-8 sm:p-12 border border-brand-creamdak relative shadow-sm"
+        >
+          <div class="text-center max-w-xl mx-auto mb-10">
+            <span
+              class="text-xs uppercase font-extrabold text-brand-green tracking-widest"
+              >About Our Purpose</span
+            >
+            <h3
+              class="text-2xl sm:text-3xl font-extrabold text-brand-dark mt-1"
+            >
+              Our Identity, Vision & Values
+            </h3>
+          </div>
+
+          <!-- Values Bar -->
+          <div
+            class="bg-brand-green text-white rounded-2xl p-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center mb-10 shadow-inner"
+          >
+            <div class="space-y-1">
+              <i class="fa-solid fa-heart text-brand-gold text-2xl mb-1"> </i>
+              <p class="font-bold text-sm">Compassion</p>
+            </div>
+            <div class="space-y-1">
+              <i
+                class="fa-solid fa-handshake-angle text-brand-gold text-2xl mb-1"
+              >
+              </i>
+              <p class="font-bold text-sm">Transparency</p>
+            </div>
+            <div class="space-y-1">
+              <i
+                class="fa-solid fa-shield-halved text-brand-gold text-2xl mb-1"
+              >
+              </i>
+              <p class="font-bold text-sm">Integrity</p>
+            </div>
+            <div class="space-y-1">
+              <i class="fa-solid fa-users text-brand-gold text-2xl mb-1"> </i>
+              <p class="font-bold text-sm">Community</p>
+            </div>
+          </div>
+
+          <!-- Vision & Mission Grid -->
+          <div
+            class="bg-white rounded-2xl p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-200"
+          >
+            <!-- Vision Box -->
+            <div class="space-y-3 pr-0 md:pr-6">
+              <div class="flex items-center gap-3 text-brand-green">
+                <div
+                  class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green"
+                >
+                  <i class="fa-solid fa-eye text-lg"> </i>
+                </div>
+                <h4 class="text-xl font-bold text-brand-dark">Our Vision</h4>
+              </div>
+              <p class="text-brand-muted text-sm leading-relaxed">
+                To be a beacon of hope in East Africa, fostering thriving school
+                communities where every child, regardless of background, has
+                equal access to basic physical needs and a dignified childhood.
+              </p>
+            </div>
+
+            <!-- Mission Box -->
+            <div class="space-y-3 pt-6 md:pt-0 pl-0 md:pl-6">
+              <div class="flex items-center gap-3 text-brand-green">
+                <div
+                  class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green"
+                >
+                  <i class="fa-solid fa-bullseye text-lg"> </i>
+                </div>
+                <h4 class="text-xl font-bold text-brand-dark">Our Mission</h4>
+              </div>
+              <p class="text-brand-muted text-sm leading-relaxed">
+                To provide continuous essential care—decent school clothing,
+                comfortable shoes, daily snacks, and sanitary pad hygiene
+                packs—empowering children to stay in school and dream bigger.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ORGANIC WAVE SEPARATOR 3 ================= -->
+    <div class="w-full overflow-hidden leading-none bg-white text-brand-cream">
+      <svg
+        class="wave-svg fill-current"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,0 C150,90 400,-30 600,40 C800,110 1050,10 1200,30 L1200,120 L0,120 Z"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- ================= SECTION 4: HOW TO HELP / DONATION DETAILS ================= -->
+    <!-- Similar to Inspo Image 5 with Form & Direct MPESA/Bank Details -->
+    <section id="how-to-help" class="py-16 sm:py-24 bg-brand-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span
+            class="text-brand-gold font-extrabold text-xs uppercase tracking-widest px-3 py-1 bg-brand-gold/10 rounded-full"
+            >Make A Difference</span
+          >
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-3">
+            How You Can Help
+          </h2>
+          <div class="w-16 h-1 bg-brand-gold mx-auto my-4 rounded-full"></div>
+          <p class="text-brand-muted text-base">
+            Your support directly provides shoes, uniforms, meals, and sanitary
+            items to Paka kids in need. Choose the method most convenient
+            for you.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Left Side: M-PESA & Direct Support Cards -->
+          <div class="lg:col-span-7 space-y-6">
+            <!-- MPESA Official Box for Kenyan Context -->
+            <div
+              class="bg-gradient-to-br from-green-800 to-brand-dark text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden"
+            >
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-12 h-12 bg-white text-green-700 rounded-2xl flex items-center justify-center font-extrabold text-xl shadow"
+                  >
+                    <i class="fa-solid fa-mobile-screen-button"> </i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-xl text-white">
+                      M-PESA Direct Donation
+                    </h3>
+                    <p class="text-xs text-green-200">
+                      Official Safaricom Paybill / Till for Paka Outreach
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-full uppercase"
+                  >Instant</span
+                >
+              </div>
+
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 mb-4"
+              >
+                <div>
+                  <p class="text-xs text-gray-300 uppercase font-semibold">
+                    Send Money
+                  </p>
+                  <p
+                    class="text-2xl font-mono font-extrabold text-brand-gold tracking-wider"
+                  >
+                    0794386306
+                  </p>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-300 uppercase font-semibold">
+                    Account Name
+                  </p>
+                  <p class="text-xl font-bold text-white tracking-wide">
+                    Vivian
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-xs text-gray-300">
+                <i class="fa-solid fa-circle-info text-brand-gold mr-1"> </i>
+                100% of your M-PESA donation goes directly to purchasing shoes,
+                clothing, snacks, and sanitary towels.
+              </p>
+            </div>
+
+            <!-- Additional Support Options -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div
+                class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition"
+              >
+                <div
+                  class="w-10 h-10 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center font-bold mb-3"
+                >
+                  <i class="fa-solid fa-box-open text-lg"> </i>
+                </div>
+                <h4 class="font-bold text-brand-dark mb-1">
+                  In-Kind Donations
+                </h4>
+                <p class="text-xs text-brand-muted">
+                  Drop off new shoes, sanitary pads, or clothing items at our
+                  Nairobi center.
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition"
+              >
+                <div
+                  class="w-10 h-10 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center font-bold mb-3"
+                >
+                  <i class="fa-solid fa-user-plus text-lg"> </i>
+                </div>
+                <h4 class="font-bold text-brand-dark mb-1">
+                  Volunteer With Us
+                </h4>
+                <p class="text-xs text-brand-muted">
+                  Join our field outreach teams during outreach distribution
+                  drives.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side: Contact / Outreach Form -->
+          <div class="lg:col-span-5">
+            <div
+              class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100"
+            >
+              <h3 class="font-bold text-xl text-brand-dark mb-1">
+                Get In Touch / Partner
+              </h3>
+              <p class="text-xs text-brand-muted mb-6">
+                Have questions or want to partner with Paka Children Outreach?
+              </p>
+
+              <form
+                action="https://formspree.io/f/xanqvlny"
+                method="POST"
+                class="space-y-4"
+              >
+                <div>
+                  <label
+                    class="block text-xs font-bold text-gray-600 uppercase mb-1"
+                    >Your Full Name</label
+                  >
+                  <input
+                    type="text"
+                    required
+                    name="name" 
+                    placeholder="e.g. Jane Doe"
+                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    class="block text-xs font-bold text-gray-600 uppercase mb-1"
+                    >Phone / M-PESA Number</label
+                  >
+                  <input
+                    type="tel"
+                    required
+                    name="phone" 
+                    placeholder="+254 7XX XXX XXX"
+                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    class="block text-xs font-bold text-gray-600 uppercase mb-1"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    required
+                    name="email"
+                    placeholder="jane@example.com"
+                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    class="block text-xs font-bold text-gray-600 uppercase mb-1"
+                    >How Would You Like to Help?</label
+                  >
+                  <textarea
+                    rows="3"
+                     name="message"
+                    placeholder="Tell us how you'd like to support or sponsor..."
+                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-green"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-brand-gold hover:bg-brand-goldhover text-brand-dark font-bold py-3.5 rounded-xl shadow transition"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ORGANIC WAVE SEPARATOR 4 ================= -->
+    <div class="w-full overflow-hidden leading-none bg-brand-cream text-white">
+      <svg
+        class="wave-svg fill-current"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,40 C200,100 500,-10 800,50 C1000,90 1100,20 1200,40 L1200,120 L0,120 Z"
+        ></path>
+      </svg>
+    </div>
+
+    <!-- ================= SECTION 5: OUR TEAM ================= -->
+    <!-- Direct Inspo Implementation from Image 3 (Agri Lane Markets Team Section) -->
+    <section id="team" class="py-16 sm:py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-2xl mx-auto mb-16">
+          <span
+            class="text-brand-gold font-extrabold text-xs uppercase tracking-widest px-3 py-1 bg-brand-gold/10 rounded-full"
+            >Dedicated Passion</span
+          >
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-3">
+            Meet Our Team
+          </h2>
+          <div class="w-16 h-1 bg-brand-gold mx-auto my-4 rounded-full"></div>
+          <p class="text-brand-muted text-base">
+            Compassionate leadership driving boots-on-the-ground change across
+            Paka kids in Kenya.
+          </p>
+        </div>
+
+        <!-- Team Grid: Matching Inspo Image 3 circular avatars + pill color backgrounds -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Team Member 1 -->
+          <div class="flex flex-col items-center group">
+            <div
+              class="w-36 h-36 rounded-full overflow-hidden mb-4 border-4 border-brand-cream p-1 bg-gradient-to-tr from-brand-gold to-brand-green shadow-md group-hover:scale-105 transition duration-300"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
+                alt="Isaac"
+                class="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark">ISAAC</h3>
+            <p
+              class="text-xs font-semibold text-brand-green uppercase tracking-wide"
+            >
+              Executive Director
+            </p>
+            <p class="text-xs text-brand-muted mt-2 max-w-xs leading-relaxed">
+              Leading strategic outreach programs and school partnerships across
+              East Africa.
+            </p>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="flex flex-col items-center group">
+            <div
+              class="w-36 h-36 rounded-full overflow-hidden mb-4 border-4 border-brand-cream p-1 bg-gradient-to-tr from-brand-green to-teal-400 shadow-md group-hover:scale-105 transition duration-300"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
+                alt="Eric"
+                class="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark">ERIC</h3>
+            <p
+              class="text-xs font-semibold text-brand-green uppercase tracking-wide"
+            >
+              Operations & Logistics
+            </p>
+            <p class="text-xs text-brand-muted mt-2 max-w-xs leading-relaxed">
+              Managing field distribution logistics for uniform and shoe
+              outreach drives.
+            </p>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="flex flex-col items-center group">
+            <div
+              class="w-36 h-36 rounded-full overflow-hidden mb-4 border-4 border-brand-cream p-1 bg-gradient-to-tr from-amber-400 to-brand-gold shadow-md group-hover:scale-105 transition duration-300"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+                alt="Kenneth"
+                class="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark">KENNETH</h3>
+            <p
+              class="text-xs font-semibold text-brand-green uppercase tracking-wide"
+            >
+              Community Liaison
+            </p>
+            <p class="text-xs text-brand-muted mt-2 max-w-xs leading-relaxed">
+              Connecting directly with primary school headmasters and local
+              community leaders.
+            </p>
+          </div>
+
+          <!-- Team Member 4 -->
+          <div class="flex flex-col items-center group">
+            <div
+              class="w-36 h-36 rounded-full overflow-hidden mb-4 border-4 border-brand-cream p-1 bg-gradient-to-tr from-rose-400 to-brand-gold shadow-md group-hover:scale-105 transition duration-300"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop"
+                alt="Mercy"
+                class="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark">MERCY</h3>
+            <p
+              class="text-xs font-semibold text-brand-green uppercase tracking-wide"
+            >
+              Girl Child Hygiene Lead
+            </p>
+            <p class="text-xs text-brand-muted mt-2 max-w-xs leading-relaxed">
+              Directing the sanitary towel distribution program and dignity
+              health workshops.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer
+      class="bg-brand-dark text-white pt-16 pb-12 border-t border-brand-green"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+          <!-- Footer Brand Column -->
+          <div class="md:col-span-5 space-y-4">
+            <div class="flex items-center gap-3">
+              
+            <img 
+  src="../images/Paka_Children_Outreach_Logo-removebg-preview.png" 
+  alt="Paka Children Outreach Logo" 
+  class="h-12 w-auto object-contain"
+/>
+                <path
+                  d="M100 20 C110 5, 135 5, 145 25 C155 45, 130 65, 100 85 C70 65, 45 45, 55 25 C65 5, 90 5, 100 20 Z"
+                  fill="#F5A623"
+                />
+                <path d="M50 45 A 22 22 0 1 0 50 1 Z" fill="#ffffff" />
+                <path
+                  d="M50 55 C 20 60, 10 90, 10 140 C 10 170, 45 175, 75 160 C 100 145, 80 110, 60 95 C 45 85, 40 70, 50 55 Z"
+                  fill="#ffffff"
+                />
+                <path d="M110 65 A 16 16 0 1 0 110 33 Z" fill="#ffffff" />
+                <path
+                  d="M110 75 C 85 80, 70 105, 80 145 C 90 170, 125 155, 135 130 C 140 110, 125 90, 110 75 Z"
+                  fill="#ffffff"
+                />
+              </svg>
+              <!--<span class="text-2xl font-extrabold tracking-tight text-white"
+                >Paka Children Outreach</span
+              >-->
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed max-w-sm">
+              Supporting children, building brighter futures across Kenya
+              through basic care, clothing, shoes, nutrition, and sanitary
+              support.
+            </p>
+            <div class="flex gap-4 pt-2">
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-dark transition flex items-center justify-center"
+                ><i class="fa-brands fa-facebook-f text-sm"> </i
+              ></a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-dark transition flex items-center justify-center"
+                ><i class="fa-brands fa-instagram text-sm"> </i
+              ></a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-dark transition flex items-center justify-center"
+                ><i class="fa-brands fa-x-twitter text-sm"> </i
+              ></a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-dark transition flex items-center justify-center"
+                ><i class="fa-brands fa-whatsapp text-sm"> </i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Footer Quick Links -->
+          <div class="md:col-span-3 space-y-3">
+            <h4
+              class="font-bold text-brand-gold text-sm uppercase tracking-wider"
+            >
+              Quick Links
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>
+                <a href="#home" class="hover:text-white transition">Home</a>
+              </li>
+              <li>
+                <a href="#story" class="hover:text-white transition"
+                  >Our Story & Identity</a
+                >
+              </li>
+              <li>
+                <a href="#objectives" class="hover:text-white transition"
+                  >Our Core Objectives</a
+                >
+              </li>
+              <li>
+                <a href="#how-to-help" class="hover:text-white transition"
+                  >How to Help & MPESA</a
+                >
+              </li>
+              <li>
+                <a href="#team" class="hover:text-white transition"
+                  >Meet Our Team</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Footer Contact Info -->
+          <div class="md:col-span-4 space-y-3">
+            <h4
+              class="font-bold text-brand-gold text-sm uppercase tracking-wider"
+            >
+              Contact Us
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-location-dot text-brand-gold"> </i>
+                <span>Nairobi, Kenya</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-phone text-brand-gold"> </i>
+                <span>+254 700 000 000</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-envelope text-brand-gold"> </i>
+                <span>info@pakachildrenoutreach.org</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Copyright -->
+        <div
+          class="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 gap-4"
+        >
+          <p>&copy; 2026 Paka Children Outreach. All Rights Reserved.</p>
+          <p class="text-gray-400">Made with ❤️ for Kenyan Children</p>
+        </div>
+      </div>
+    </footer>
+
+    
+<script src="https://unpkg.com/intasend-checkout-sdk"> </script>
+
+<script>
+  const intasend = new window.IntaSend({
+    publicAPIKey: "ISPubKey_test_3d77750b-3096-4082-814c-97865e46f890",
+    live: false,
+    mode: "popup"
+  })
+    .on("COMPLETE", (results) => {
+      console.log("IntaSend checkout completed:", results);
+      alert(
+        "Thank you for supporting Paka Children Outreach! " +
+        "Please allow us to verify your payment."
+      );
+    })
+    .on("FAILED", (results) => {
+      console.error("IntaSend payment failed:", results);
+      alert("The payment was not completed. Please try again.");
+    })
+    .on("IN-PROGRESS", (results) => {
+      console.log("IntaSend payment is in progress:", results);
+    });
+</script>
+</body>
+</html>
+
+
+  </body>
+</html>
